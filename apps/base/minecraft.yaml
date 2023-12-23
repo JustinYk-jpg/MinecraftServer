@@ -1,0 +1,26 @@
+---
+apiVersion: shulkermc.io/v1alpha1
+kind: MinecraftCluster
+metadata:
+  name: minecraft
+  namespace: apps
+spec: {}
+---
+apiVersion: shulkermc.io/v1alpha1
+kind: ProxyFleet
+metadata:
+  name: minecraft
+  namespace: apps
+spec:
+  clusterRef:
+    name: minecraft
+  replicas: 1
+  service:
+    type: NodePort
+    externalTrafficPolicy: Local
+  template:
+    spec:
+      version:
+        channel: Velocity
+        name: latest
+      config: {}
