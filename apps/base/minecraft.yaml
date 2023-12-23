@@ -16,8 +16,8 @@ spec:
     name: minecraft
   replicas: 1
   service:
-    type: NodePort
-    externalTrafficPolicy: Local
+    type: ClusterIP
+    # externalTrafficPolicy: Local
   template:
     spec:
       version:
